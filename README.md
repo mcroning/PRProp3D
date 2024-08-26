@@ -20,8 +20,11 @@ By increasing the number of y samples , ysamp from 512 to 4096 we can lessen the
 
 ![image](https://github.com/user-attachments/assets/9e7cf421-2238-4a54-bd5f-02f3b7630168)
 
-Now it is just the z step related artifacts that remain. These can be decreased by reducing the longitudinal step size from 20 $\mu m$ to 5 $\mu m$ ath the cost of increasing the computation time to 270 seconds
+Now it is just the z step related artifacts that remain. These can be decreased by reducing the longitudinal step size from 20 $\mu m$ to 5 $\mu m$ at
+the cost of increasing the computation time to 270 seconds
 
 ![image](https://github.com/user-attachments/assets/e10ed2ae-80ee-48c0-8baf-e71cd3a94e50)
 
+Explanation of parameters
+gain length product: The standard interaction strength used in the plane wave photorefractive theory. It is the coupling constant $\gamma$ times the length $\ell$ of the interaction region.
 
