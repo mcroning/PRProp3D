@@ -14,4 +14,14 @@ Some examples to try initially:
 3) Amplify an image. Usse the image on beam dropdown to select 'Beam 1'. Select one of the MNIST images, or an AF resolution target. If yoou choose am MNIST image, I recommend to check the invert image check box. If you want to see the amplified beam seclect "backpropagate image". This is eqiovalent to bringing the amplified image bearing beam to an image plane. You might want to select staic time dependence at first.
 4) Model fanning. Set the gain to 10, beam ratio zero, noise type 'volume xy', check 'fanning study'. Without an image applied you should find that the fanning efficiiency is about 33%
 5) Repeat the fanning modeling but with beam 1 waist 200 $\mu m$. You will see that the fanning is stronger than with the 100 $\mu m$ waist beam, and artifacts are beginning to creep in. The plot of the transverse gration goild shows that the fields have begun to wrap around and the far field image shows the characteristic artifact rings
-   
+![image](https://github.com/user-attachments/assets/c995f44f-72b4-426d-a244-f21f4082d3cc)
+
+By increasing the number of y samples , ysamp from 512 to 4096 we can lessen the wraparound artifacts in the y direction. This increases the computation time to 63 seconds
+
+![image](https://github.com/user-attachments/assets/9e7cf421-2238-4a54-bd5f-02f3b7630168)
+
+Now it is just the z step related artifacts that remain. These can be decreased by reducing the longitudinal step size from 20 $\mu m$ to 5 $\mu m$ ath the cost of increasing the computation time to 270 seconds
+
+![image](https://github.com/user-attachments/assets/e10ed2ae-80ee-48c0-8baf-e71cd3a94e50)
+
+
