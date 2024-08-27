@@ -26,5 +26,8 @@ the cost of increasing the computation time to 270 seconds
 ![image](https://github.com/user-attachments/assets/e10ed2ae-80ee-48c0-8baf-e71cd3a94e50)
 
 Explanation of parameters
+
 gain length product: The standard interaction strength used in the plane wave photorefractive theory. It is the coupling constant $\gamma$ times the length $\ell$ of the interaction region.
+
+intensity beam ratio: The ratio of the peak intensity of beam 2 to beam 1. This corresponds to the parameter $\it r$ in the plane wave theory.
 
