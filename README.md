@@ -9,7 +9,7 @@ The program with its default parameters will work on Google COLAB’s free accou
 The defaults are two beam coupling of 100 $\mu m$ diameter beams with input angles of $\theta$ = 0.1 radians and $\gamma \ell$ =-3. The longitudinal step size is 20 $\mu m$ and the crystal aperture is 1mm x 1mm. The interaction length is 4mm. A steady state calculation takes about 8 seconds. Time dependent image amplification over 80 steps to an end time of ten time units takes about 10 minutes. The program has also been tested with plane wave coupling with $\gamma \ell$ =-3, beam ratio 1 and fanning with $\gamma \ell$ = 10 and beam ratio zero.
 
 PRProp3D
-https://github.com/mcroning/PRProp3D/blob/main/PRcoupler.ipynb
+[https://github.com/mcroning/PRProp3D/blob/main/PRcoupler.ipynb](https://colab.research.google.com/github/mcroning/PRProp3D/blob/main/PRcoupler.ipynb)
 
 Some examples to try initially:
 1) Run with default parameters.  Theis will show steady state two beam coupling of two 100 $\mu m$ waist beams with $\gamma \ell$ =-3. On a T4 this takes about 7 seconds
