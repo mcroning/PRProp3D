@@ -74,7 +74,7 @@ _z step um_: The longitudinal step size in micrometers. Proper modelling of the 
 
 _wavelength um_: Optical wavelength in free space in micrometers.
 
-_waist 1_: The input beams are generated using the standard gaussian beam formula. The waist of beam 1 at its focus is waist 1. Its focus is halfway along the interaction length. If the beam waist is entered as a negative number, plane wave incidence is assumed,  This can be used for cross checking results with the standard plane wave two beam coupling theory.[18]
+_waist 1_: The input beams are generated using the standard gaussian beam formula. The waist of beam 1 at its focus is waist 1. Its focus is halfway along the interaction length. If the beam waist is entered as a negative number, plane wave incidence is assumed,  This can be used for cross checking results with the standard plane wave two beam coupling theory[^1].
 
 _waist 2_: The waist of beam 2.
 
@@ -123,3 +123,4 @@ _dark intensity_: Equivalent optical intensity accounting for thermally ionized 
 _Tukey window edge_: The edge parameter for the Tukey (cosine taper) window[25] used to enable absorbing boundaries of the propagation lattice in both real space and Fourier space
 
 
+[^1] N. V. Kukhtarev, V. B. Markov, S. G. Odulov, M. S. Soskin, and V. L. Vinetskii, Ferroelectrics **22**, 949 (1979)
