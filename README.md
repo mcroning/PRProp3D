@@ -74,7 +74,7 @@ _z step um_: The longitudinal step size in micrometers. Proper modelling of the 
 
 _wavelength um_: Optical wavelength in free space in micrometers.
 
-_waist 1_: The input beams are generated using the standard gaussian beam formula. The waist of beam 1 at its focus is waist 1. Its focus is halfway along the interaction length. If the beam waist is entered as a negative number, plane wave incidence is assumed,  This can be used for cross checking results with the standard plane wave two beam coupling theory[^1].
+_waist 1_: The input beams are generated using the standard gaussian beam formula. The waist of beam 1 at its focus is waist 1. Its focus is halfway along the interaction length. If the beam waist is entered as a negative number, plane wave incidence is assumed,  This can be used for cross checking results with the standard plane wave two beam coupling theory[1].
 
 _waist 2_: The waist of beam 2.
 
@@ -112,7 +112,7 @@ _save output_: If selected the run’s data will be stored to disk. It can be re
 
 _relative dielectric constant_: This is the dielectric constant of the interaction crystal normalized by the permittivity of free space $epsilon _0$.
 
-_mobile charge density_: This is the density of empty sites in the crystal when in the dark with no photorefractive grating. Its units are m<sup>-3</sup>. Typical values are of the order of 10<sup>22</sup> m<sup>-3</sup>. From Garrett et al[24]: 6.4 x 10<sup>22</sup> m<sup>-3</sup>, and from Feinberg et al[15]: 1.9 x 10<sup>22</sup> m<sup>-3</sup>. 
+_mobile charge density_: This is the density of empty sites in the crystal when in the dark with no photorefractive grating. Its units are m<sup>-3</sup>. Typical values are of the order of 10<sup>22</sup> m<sup>-3</sup>. From Garrett et al[2]: 6.4 x 10<sup>22</sup> m<sup>-3</sup>, and from Feinberg et al[3]: 1.9 x 10<sup>22</sup> m<sup>-3</sup>. 
 
 _temperature K_: Temperature in Kelvin.
 
@@ -123,4 +123,8 @@ _dark intensity_: Equivalent optical intensity accounting for thermally ionized 
 _Tukey window edge_: The edge parameter for the Tukey (cosine taper) window[25] used to enable absorbing boundaries of the propagation lattice in both real space and Fourier space
 
 
-[^1] N. V. Kukhtarev, V. B. Markov, S. G. Odulov, M. S. Soskin, and V. L. Vinetskii, Ferroelectrics **22**, 949 (1979)
+[1] N. V. Kukhtarev, V. B. Markov, S. G. Odulov, M. S. Soskin, and V. L. Vinetskii, Ferroelectrics **22**, 949 (1979)
+
+[2] M. H. Garrett, J. Y. Chang, H. P. Jenssen, and C. Warde, Journal of the Optical Society of America B-Optical Physics **9**, 1407 (1992).
+
+[3] J. Feinberg, D. Heiman, A. R. Tanguay, and R. W. Hellwarth, Journal of Applied Physics 51, 1297 (1980).
