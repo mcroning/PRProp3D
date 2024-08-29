@@ -110,15 +110,15 @@ _Google drive save folder_: When save output is selected, contains the name of t
 
 _save output_: If selected the run’s data will be stored to disk. It can be retrieved by the notebook PR_reader or at the beginning of each run instance.
 
-_relative dielectric constant_: This is the dielectric constant of the interaction crystal normalized by the permittivity of free space $epsilon_0$.
+_relative dielectric constant_: This is the dielectric constant of the interaction crystal normalized by the permittivity of free space $epsilon _0$.
 
-_mobile charge density_: This is the density of empty sites in the crystal when in the dark with no photorefractive grating. Its units are m-3. Typical values are of the order of 1022 m-3. From Garrett et al[24]: 6.4 x1022 m-3, and from Feinberg et al[15]: 1.9 x 1022 m-3. 
+_mobile charge density_: This is the density of empty sites in the crystal when in the dark with no photorefractive grating. Its units are m<sup>-3</sup>. Typical values are of the order of 10<sup>22</sup> m<sup>-3</sup>. From Garrett et al[24]: 6.4 x 10<sup>22</sup> m<sup>-3</sup>, and from Feinberg et al[15]: 1.9 x 10<sup>22</sup> m<sup>-3</sup>. 
 
 _temperature K_: Temperature in Kelvin.
 
-_refractive index_: Crystal refractive index. For BaTiO3, 2.4 (data available from various sources, with slight differences between ordinary and extraordinary indices).
+_refractive index_: Crystal refractive index. For BaTiO<sub>3</sub>, 2.4 (data available from various sources, with slight differences between ordinary and extraordinary indices).
 
-_dark intensity_: Equivalent optical intensity accounting for thermally ionized carriers. This intensity accounts for dark decay of the gratings. Normalized to the sum of the average peak intensity I0 of the beams. (See appendix A)
+_dark intensity_: Equivalent optical intensity accounting for thermally ionized carriers. This intensity accounts for dark decay of the gratings. Normalized to the sum of the average peak intensity I<sub>0</sub> of the beams. (See appendix A)
 
 _Tukey window edge_: The edge parameter for the Tukey (cosine taper) window[25] used to enable absorbing boundaries of the propagation lattice in both real space and Fourier space
 
