@@ -4,7 +4,7 @@ The menu items are shown below.
 
 ![image](https://github.com/user-attachments/assets/bb0ca750-cbe9-40f5-b944-09c42b79222e)
 
-The program calculates unidirectional nonlinear optical beam propagation in three dimensions using photorefractive optical nonlinearities. It is based on the well-known split step beam propagation method which divides the process into a series of alternating steps along the longitudinal z direction. Diffractive propagation steps are handled using the angular spectrum of plane waves method[14] in which the angular spectrum of the optical field is calculated using the Fast Fourier Transform (FFT). The field is propagated as a set of individual plane waves for a short distance dz and the inverse Fourier transform is taken. The accumulated nonlinearity is then calculated from the intensity and applied as a spatially varying transparency. The process is repeated until the end of the interaction region is reached. The parameters used in the code are as follows, listed in the order that they appear in the input form.
+The program calculates unidirectional nonlinear optical beam propagation in three dimensions using photorefractive optical nonlinearities. It is based on the well-known split step beam propagation method which divides the process into a series of alternating steps along the longitudinal z direction. Diffractive propagation steps are handled using the angular spectrum of plane waves method[1] in which the angular spectrum of the optical field is calculated using the Fast Fourier Transform (FFT). The field is propagated as a set of individual plane waves for a short distance dz and the inverse Fourier transform is taken. The accumulated nonlinearity is then calculated from the intensity and applied as a spatially varying transparency. The process is repeated until the end of the interaction region is reached. The parameters used in the code are as follows, listed in the order that they appear in the input form.
 The program with its default parameters will work on Google COLAB’s free accounts using its T4 GPU.  
 The defaults are two beam coupling of 100 $\mu m$ diameter beams with input angles of $\theta$ = 0.1 radians and $\gamma \ell$ =-3. The longitudinal step size is 20 $\mu m$ and the crystal aperture is 1mm x 1mm. The interaction length is 4mm. A steady state calculation takes about 8 seconds. Time dependent image amplification over 80 steps to an end time of ten time units takes about 10 minutes. The program has also been tested with plane wave coupling with $\gamma \ell$ =-3, beam ratio 1 and fanning with $\gamma \ell$ = 10 and beam ratio zero.
 
@@ -90,7 +90,7 @@ _z step um_: The longitudinal step size in micrometers. Proper modelling of the 
 
 _wavelength um_: Optical wavelength in free space in micrometers.
 
-_waist 1_: The input beams are generated using the standard gaussian beam formula. The waist of beam 1 at its focus is waist 1. Its focus is halfway along the interaction length. If the beam waist is entered as a negative number, plane wave incidence is assumed,  This can be used for cross checking results with the standard plane wave two beam coupling theory[1].
+_waist 1_: The input beams are generated using the standard gaussian beam formula. The waist of beam 1 at its focus is waist 1. Its focus is halfway along the interaction length. If the beam waist is entered as a negative number, plane wave incidence is assumed,  This can be used for cross checking results with the standard plane wave two beam coupling theory[2].
 
 _waist 2_: The waist of beam 2.
 
@@ -128,7 +128,7 @@ _save output_: If selected the run’s data will be stored to disk. It can be re
 
 _relative dielectric constant_: This is the dielectric constant of the interaction crystal normalized by the permittivity of free space $epsilon _0$.
 
-_mobile charge density_: This is the density of empty sites in the crystal when in the dark with no photorefractive grating. Its units are m<sup>-3</sup>. Typical values are of the order of 10<sup>22</sup> m<sup>-3</sup>. From Garrett et al[2]: 6.4 x 10<sup>22</sup> m<sup>-3</sup>, and from Feinberg et al[3]: 1.9 x 10<sup>22</sup> m<sup>-3</sup>. 
+_mobile charge density_: This is the density of empty sites in the crystal when in the dark with no photorefractive grating. Its units are m<sup>-3</sup>. Typical values are of the order of 10<sup>22</sup> m<sup>-3</sup>. From Garrett et al[3]: 6.4 x 10<sup>22</sup> m<sup>-3</sup>, and from Feinberg et al[4]: 1.9 x 10<sup>22</sup> m<sup>-3</sup>. 
 
 _temperature K_: Temperature in Kelvin.
 
@@ -136,11 +136,15 @@ _refractive index_: Crystal refractive index. For BaTiO<sub>3</sub>, 2.4 (data a
 
 _dark intensity_: Equivalent optical intensity accounting for thermally ionized carriers. This intensity accounts for dark decay of the gratings. Normalized to the sum of the average peak intensity I<sub>0</sub> of the beams. (See appendix A)
 
-_Tukey window edge_: The edge parameter for the Tukey (cosine taper) window[25] used to enable absorbing boundaries of the propagation lattice in both real space and Fourier space
+_Tukey window edge_: The edge parameter for the Tukey (cosine taper) window[5] used to enable absorbing boundaries of the propagation lattice in both real space and Fourier space
 
+[1] J. W. Goodman, Introduction to Fourier optics (W.H. Freeman, Macmillan Learning, New York, 2017), Fourth edition. edn.
 
-[1] N. V. Kukhtarev, V. B. Markov, S. G. Odulov, M. S. Soskin, and V. L. Vinetskii, Ferroelectrics **22**, 949 (1979)
+[2] N. V. Kukhtarev, V. B. Markov, S. G. Odulov, M. S. Soskin, and V. L. Vinetskii, Ferroelectrics **22**, 949 (1979)
 
-[2] M. H. Garrett, J. Y. Chang, H. P. Jenssen, and C. Warde, Journal of the Optical Society of America B-Optical Physics **9**, 1407 (1992).
+[3] M. H. Garrett, J. Y. Chang, H. P. Jenssen, and C. Warde, Journal of the Optical Society of America B-Optical Physics **9**, 1407 (1992).
 
-[3] J. Feinberg, D. Heiman, A. R. Tanguay, and R. W. Hellwarth, Journal of Applied Physics 51, 1297 (1980).
+[4] J. Feinberg, D. Heiman, A. R. Tanguay, and R. W. Hellwarth, Journal of Applied Physics 51, 1297 (1980).
+
+[5] F. J. Harris, Proceedings of the IEEE **66**, 51 (1978).
+
