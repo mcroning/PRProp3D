@@ -11,7 +11,23 @@ The defaults are two beam coupling of 100 $\mu m$ diameter beams with input angl
 Open on COLAB at the following link:
 (https://colab.research.google.com/github/mcroning/PRProp3D/blob/main/PRcoupler.ipynb)
 Instructions for use:
-In the notebook run the first two cells 1) to load modules and 2) define functions and load sample images
+
+**First Run**
+
+In the notebook run the first two cells 1) to load modules and 2) define functions and load sample images. 
+
+For the first run answer n to the propmpt for laoding existing parameters. The default parameters are automatically loaded.
+
+Run the initialization cell, then the calculation loop. On a COLAB T4 GPU, the first run will take about 10 seconds.
+
+Run the postprocessing and display cell. This will show the input and output beams. The color scale can be interactively controlled by the sliders. Also provided is a cross section of the input and output beams. Their vertical scales can be controlled by sliders. Finally for this first run you will see xz cross sections of the beam intensity and protorefractive grating field.
+
+**Saving Data**
+
+If you had checked the save data checkbox you would have been propmpted to allow access to your Google drive. Running the save data cell will save a json file of the dictionary containing the parameters you used, formatted so it can be viewed by humans as a text file. Some output images will also be saved. These results are placed in a Google drive folder whose name is specified in the Google drive folder text box. 
+In subsequent runs if you answer yes to the offer to load an existing parameter file, you will be asked to authorizwe Google drive access. It is easest to open the folder with your data and right click on the json or npz file then copy the path to the text box which will pop up. Data were save in compressed npz files in earlier versions, but now the dictionary is saved as a readable json.
+
+
 
 
 Some examples to try initially:
