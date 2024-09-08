@@ -16,11 +16,15 @@ Instructions for use:
 
 In the notebook run the first two cells 1) to load modules and 2) define functions and load sample images. 
 
-For the first run answer n to the propmpt for laoding existing parameters. The default parameters are automatically loaded.
+For the first run answer n to the prompt for laoding existing parameters. The default parameters are automatically loaded.
 
 Run the initialization cell, then the calculation loop. On a COLAB T4 GPU, the first run will take about 10 seconds.
 
 Run the postprocessing and display cell. This will show the input and output beams. The color scale can be interactively controlled by the sliders. Also provided is a cross section of the input and output beams. Their vertical scales can be controlled by sliders. Finally for this first run you will see xz cross sections of the beam intensity and protorefractive grating field.
+
+**Time Dependent Model Runs**
+
+After running the postprocessing and display cell and using the sliders to adjust the output levels, run the Generate movies cell
 
 **Saving Data**
 
