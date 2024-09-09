@@ -24,7 +24,7 @@ Run the postprocessing and display cell. This will show the input and output bea
 
 **Time Dependent Model Runs**
 
-After running the postprocessing and display cell and using the sliders to adjust the output levels, run the Generate movies cell
+After running the postprocessing and display cell and using the sliders to adjust the output levels, run the Generate movies cell. The cell will only run if you ahve approved the image dispay levels set in the previous display cell.
 
 **Saving Data**
 
@@ -39,7 +39,7 @@ Some examples to try initially:
 2) Run the same in time dependent mode. Toggle the time behavior dropdown. Chenge the beam ratio to 6 to get a more pronounced amplification. This will take about ten minutes.
 3) Amplify an image. Usse the image on beam dropdown to select 'Beam 1'. Select one of the MNIST images, or an AF resolution target. If yoou choose am MNIST image, I recommend to check the invert image check box. If you want to see the amplified beam seclect "backpropagate image". This is equivalent to bringing the amplified image bearing beam to an image plane. You might want to select static time dependence at first. When amplifying a real image, the phases in the interference pattern change slowly in the transverse direction and the time integration will be stable with long time steps ($t_0$ / 8), but the pattern becomes more complex for a phase image and shorter conservative time steps must be generally used to obtain stability. Do not rerun the cell containing the  widgets otherwise the default settings will reload.
 4) Model fanning. Set the gain to 10, beam ratio zero, noise type 'volume xy', check 'fanning study'. Without an image applied you should find that the fanning efficiiency is about 33%
-5) Repeat the fanning modeling but with beam 1 waist 200 $\mu m$. You will see that the fanning is stronger than with the 100 $\mu m$ waist beam, and artifacts are beginning to creep in. The plot of the transverse gration goild shows that the fields have begun to wrap around and the far field image shows the characteristic artifact rings. 
+5) Repeat the fanning modeling but with beam 1 waist 200 $\mu m$. You will see that the fanning is stronger than with the 100 $\mu m$ waist beam, and artifacts are beginning to creep in. The plot of the transverse grating shows that the fields have begun to wrap around and the far field image shows the characteristic artifact rings. 
 ![image](https://github.com/user-attachments/assets/c995f44f-72b4-426d-a244-f21f4082d3cc)
 
 By increasing the number of y samples , ysamp from 512 to 4096 we can lessen the wraparound artifacts in the y direction. This increases the computation time to 63 seconds
