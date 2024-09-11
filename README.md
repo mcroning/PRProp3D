@@ -14,32 +14,32 @@ Instructions for use:
 
 **First Run**
 
-In the notebook run the first two cells 1) to load modules and 2) define functions and load sample images. 
+In the notebook run the first three cells 1) to load modules and 2) load functions and 3) load sample images and set functions. 
 
-For the first run answer n to the prompt for laoding existing parameters. The default parameters are automatically loaded.
+For the first run answer n to the prompt for loading existing parameters. The default parameters are automatically loaded.
 
 Run the initialization cell, then the calculation loop. On a COLAB T4 GPU, the first run will take about 10 seconds.
 
-Run the postprocessing and display cell. This will show the input and output beams. The color scale can be interactively controlled by the sliders. Also provided is a cross section of the input and output beams. Their vertical scales can be controlled by sliders. Finally for this first run you will see xz cross sections of the beam intensity and protorefractive grating field.
+Run the postprocessing and display cell. This will show the input and output beams. The color scale can be interactively controlled by the sliders. Also provided is a cross section of the input and output beams. Their vertical scales can be controlled by sliders. Finally for this first run you will see xz cross sections of the beam intensity and protorefractive grating field. Their color scales can also be adjusted with sliders. The next two cells are for generating movies of time dependent results and saving image and movie output as well as a json file of the parameters that were used.
+
+**Subsequent Runs**
+In the same session you can rerun the program with different parameters by updating the entries in the widgets. You do need to run the "Initialize parameters" cell each time you change parameters because the variables need to be explicitly updated. Subsequent runs of this cell are faster.
 
 **Time Dependent Model Runs**
+By setting the time behavior dropdown to "Time Dependent" you can make temporal calculations of two beam coupling.
+After running the postprocessing and display cell and using the sliders to adjust the output levels, run the Generate movies cell. The cell will only run if you have checked the checkbox at the end of the display cell to approve the image dispay levels set there. Depending on the complexity of the fields, the time integration may become unstable.  If this happens the calculation cell will be aborted snd a notice given at the output of the cell.
 
-After running the postprocessing and display cell and using the sliders to adjust the output levels, run the Generate movies cell. The cell will only run if you ahve approved the image dispay levels set in the previous display cell.
-
-**Saving Data**
-
-If you had checked the save data checkbox you would have been propmpted to allow access to your Google drive. Running the save data cell will save a json file of the dictionary containing the parameters you used, formatted so it can be viewed by humans as a text file. Some output images will also be saved. These results are placed in a Google drive folder whose name is specified in the Google drive folder text box. 
-In subsequent runs if you answer yes to the offer to load an existing parameter file, you will be asked to authorizwe Google drive access. It is easest to open the folder with your data and right click on the json or npz file then copy the path to the text box which will pop up. Data were save in compressed npz files in earlier versions, but now the dictionary is saved as a readable json.
-
-
-
+**Saving Data** 
+If you have checked the save data checkbox you will be prompted to allow access to your Google Drive. Running the save data cell will save a json file of the dictionary containing the parameters you used, formatted so it can be viewed by humans as a text file. Some output images will also be saved. These results are placed in a Google Drive folder whose name is specified in the Google Drive folder text box. 
+In subsequent runs if you answer yes to the offer to load an existing parameter file, you will be asked to authorize Google Drive access. It is easest to use the file menu on the left side of the notebook to open the folder with your data and right click on the json or npz file then copy the path to the text box which will pop up. Data were saved in compressed npz files in earlier versions, but now the dictionary is saved as a readable json.
 
 Some examples to try initially:
 1) Run with default parameters.  Theis will show steady state two beam coupling of two 100 $\mu m$ waist beams with $\gamma \ell$ =-3. On a T4 this takes about 7 seconds
-2) Run the same in time dependent mode. Toggle the time behavior dropdown. Chenge the beam ratio to 6 to get a more pronounced amplification. This will take about ten minutes.
-3) Amplify an image. Usse the image on beam dropdown to select 'Beam 1'. Select one of the MNIST images, or an AF resolution target. If yoou choose am MNIST image, I recommend to check the invert image check box. If you want to see the amplified beam seclect "backpropagate image". This is equivalent to bringing the amplified image bearing beam to an image plane. You might want to select static time dependence at first. When amplifying a real image, the phases in the interference pattern change slowly in the transverse direction and the time integration will be stable with long time steps ($t_0$ / 8), but the pattern becomes more complex for a phase image and shorter conservative time steps must be generally used to obtain stability. Do not rerun the cell containing the  widgets otherwise the default settings will reload.
-4) Model fanning. Set the gain to 10, beam ratio zero, noise type 'volume xy', check 'fanning study'. Without an image applied you should find that the fanning efficiiency is about 33%
-5) Repeat the fanning modeling but with beam 1 waist 200 $\mu m$. You will see that the fanning is stronger than with the 100 $\mu m$ waist beam, and artifacts are beginning to creep in. The plot of the transverse grating shows that the fields have begun to wrap around and the far field image shows the characteristic artifact rings. 
+2) Run the same in time dependent mode. Toggle the time behavior dropdown. Chenge the beam ratio to 6 to get a more pronounced amplification. This will take about ten minutes. You do not need to run the "Load samples..." cell again. The parameters are automatically updated. You do need to run the subsequent cells.
+3) Amplify an image. Use the image on beam dropdown to select 'Beam 1'. Select one of the MNIST images, or an AF resolution target. If yoou choose am MNIST image, I recommend checking the invert image check box. If you want to see the amplified beam seclect "backpropagate output image". This is equivalent to bringing the amplified image bearing beam to an image plane.
+4) Time dependent image amplification. When amplifying a real image, the phases in the interference pattern change slowly in the transverse direction and the time integration will be stable with long time steps ($t_0$ / 12), but the pattern becomes more complex for a phase image and shorter conservative time steps must be generally used to obtain stability. 
+5) Model fanning. Set the gain to 10, beam ratio zero, noise type 'volume xy', check 'fanning study'. Without an image applied you should find that the fanning efficiiency is about 33%
+6) Repeat the fanning modeling but with beam 1 waist 200 $\mu m$. You will see that the fanning is stronger than with the 100 $\mu m$ waist beam, and artifacts are beginning to creep in. The plot of the transverse grating shows that the fields have begun to wrap around and the far field image shows the characteristic artifact rings. 
 ![image](https://github.com/user-attachments/assets/c995f44f-72b4-426d-a244-f21f4082d3cc)
 
 By increasing the number of y samples , ysamp from 512 to 4096 we can lessen the wraparound artifacts in the y direction. This increases the computation time to 63 seconds
@@ -53,7 +53,7 @@ the cost of increasing the computation time to 270 seconds
 
 **Explanation of parameters**
 
-_gain length product_: The standard interaction strength used in the plane wave photorefractive theory. It is the coupling constant $\gamma$ times the length $\ell$ of the interaction region.
+_gain length product_: The standard interaction strength used in the plane wave photorefractive theory. It is the coupling constant $\gamma$ times the length $\ell$ of the interaction region. Beam 1 will be amplified if the gain length product is negative.
 
 _intensity beam ratio_: The ratio of the peak intensity of beam 2 to beam 1. This corresponds to the parameter _r_ in the plane wave theory.
 
@@ -61,9 +61,9 @@ _image on beam_: A dropdown to specify whether an image is to be applied at the 
 
 _image type_: Determines whether the image is applies as an amplitude or phase transparency.
 
-_image size normalized by waist 1_: The ratio between the transverse extent of the image to the waist of beam 1.
+_image size normalized by waist_: The ratio between the transverse extent of the image to the waist of beam 1.
 
-_external image file_: The path to a user supplied image for application the input. If there is no file at the path specified, the image specified in the std image dropdown will be used if called for.
+_external image file_: The path to a user supplied image for application the input. If there is no file at the path specified, the image specified in the std image dropdown will be used if called for. You can upload an image to COLAB's temporary storage space, or to your Google Drive. Most image file types are supported.
 
 _standard image_: This dropdown is used to specify which of eleven standard supplied images will be used. One example of an MNIST digit for each of the digits 0 through 9 is supplied, as well as a 1951 Air Force Resolution Chart.
 
@@ -74,7 +74,7 @@ _noise type_:
 - _none_: No noise
 - _volume xy_: Scattering screens are placed at the end of each propagation step with the nonlinear phase transparency. The correlation length of these screens is given by sigma (see parameter sigma below). They are uncorrelated in the z direction.
 
-_scattering correlation length_: The correlation length of the Gaussian random phase screens used to model optical scattering in the crystal.
+_scattering correlation length_: The correlation length in micrometers of the Gaussian random phase screens used to model optical scattering in the crystal.
 
 _volume noise parameter_: scattering amplitude parameter $\epsilon$ which is the number of scattering phase screens times mean square deviation of each phase screen.
 
@@ -88,7 +88,7 @@ _x samples_: Number of grid points in the x direction.
 
 _y samples_: Number of grid points in the y direction.
 
-_interaction length_: Length $\ell$ in micrometers of interaction region in _z_ direction. Normally, the two beams, beam 1 and beam 2 will interact in the xz plane (azimuth zero, see below).
+_interaction length_: Length $\ell$ in micrometers of interaction region in _z_ direction. Normally, the two beams, beam 1 and beam 2 will interact in the xz plane (azimuth = zero, see below).
 
 _z step um_: The longitudinal step size in micrometers. Proper modelling of the optical effects of fine (micrometer scale) refractive index variations often requires step sizes of 10 $\mu m$ or less. 
 
@@ -98,7 +98,7 @@ _waist 1_: The input beams are generated using the standard gaussian beam formul
 
 _waist 2_: The waist of beam 2.
 
-_use plane wave space charge model if appropriate_: For use when using plane wave two beam coupling theory. Only available for two coupled plane waves  propagating in xz plane with symmetric incidence angles.
+_use plane wave space charge model if appropriate_: For use when modelling plane wave two beam coupling theory. Only available for two coupled plane waves  propagating in xz plane with symmetric incidence angles.
 
 _beam 1 polar angle_: The polar angle of incidence of beam 1, $\theta_1$. The definition of the angles is shown in Fig. 14.
 
