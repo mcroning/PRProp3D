@@ -6,7 +6,7 @@ The menu items are shown below.
 
 The program calculates unidirectional nonlinear optical beam propagation in three dimensions using photorefractive optical nonlinearities. It is based on the well-known split step beam propagation method which divides the process into a series of alternating steps along the longitudinal z direction. Diffractive propagation steps are handled using the angular spectrum of plane waves method[1] in which the angular spectrum of the optical field is calculated using the Fast Fourier Transform (FFT). The field is propagated as a set of individual plane waves for a short distance dz and the inverse Fourier transform is taken. The accumulated nonlinearity is then calculated from the intensity and applied as a spatially varying transparency. The process is repeated until the end of the interaction region is reached. The parameters used in the code are as follows, listed in the order that they appear in the input form.
 The program with its default parameters will work on Google COLAB’s free accounts using its T4 GPU.  
-The defaults are two beam coupling of 100 $\mu m$ diameter beams with input angles of $\theta$ = 0.1 radians and $\gamma \ell$ =-3. This results in the amplifaction of the beam labelled "Beam 1". The longitudinal step size is 20 $\mu m$ and the crystal aperture is 1mm x 1mm. The interaction length is 4mm. A steady state calculation takes about 8 seconds. Time dependent image amplification over 80 steps to an end time of ten time units takes about 10 minutes. The program has also been tested with plane wave coupling with $\gamma \ell$ =-3, beam ratio 1 and fanning with $\gamma \ell$ = 10 and beam ratio zero.
+The defaults are two beam coupling of 100 $\mu m$ diameter beams with input angles of $\theta$ = 0.1 radians and $\gamma \ell$ =-3. This results in the amplifaction of the beam labelled "Beam 1" by a factor of about 1.5. The longitudinal step size is 20 $\mu m$ and the crystal aperture is 1mm x 1mm. The interaction length is 4mm. A steady state calculation takes about 8 seconds. Time dependent beam coupling over 120 time steps to an end time of ten time units takes about 15 minutes. The program has also been tested with plane wave coupling with $\gamma \ell$ =-3, beam ratio 1 and fanning with $\gamma \ell$ = 10 and beam ratio zero.
 
 Open on COLAB at the following link:
 (https://colab.research.google.com/github/mcroning/PRProp3D/blob/main/PRcoupler.ipynb)
@@ -27,7 +27,7 @@ In the same session you can rerun the program with different parameters by updat
 
 **Time Dependent Model Runs**
 By setting the time behavior dropdown to "Time Dependent" you can make temporal calculations of two beam coupling.
-After running the postprocessing and display cell and using the sliders to adjust the output levels, run the Generate movies cell. The cell will only run if you have checked the checkbox at the end of the display cell to approve the image dispay levels set there. Depending on the complexity of the fields, the time integration may become unstable.  If this happens the calculation cell will be aborted snd a notice given at the output of the cell.
+After running the postprocessing and display cell and using the sliders to adjust the output levels, run the Generate movies cell. Depending on the complexity of the fields, the time integration may become unstable.  If this happens the calculation cell will be aborted snd a notice given at the output of the cell. The output up to the failure can still be viewed and saved.
 
 **Saving Data** 
 If you have checked the save data checkbox you will be prompted to allow access to your Google Drive. Running the save data cell will save a json file of the dictionary containing the parameters you used, formatted so it can be viewed by humans as a text file. Some output images will also be saved. These results are placed in a Google Drive folder whose name is specified in the Google Drive folder text box. 
@@ -35,24 +35,31 @@ In subsequent runs if you answer yes to the offer to load an existing parameter 
 
 Some examples to try initially:
 1) Run with default parameters.  Theis will show steady state two beam coupling of two 100 $\mu m$ waist beams with $\gamma \ell$ =-3. On a T4 this takes about 7 seconds
-2) Run the same in time dependent mode. Toggle the time behavior dropdown. Chenge the beam ratio to 6 to get a more pronounced amplification. This will take about ten minutes. You do not need to run the "Load samples..." cell again. The parameters are automatically updated. You do need to run the subsequent cells.
-3) Amplify an image. Use the image on beam dropdown to select 'Beam 1'. Select one of the MNIST images, or an AF resolution target. If you choose am MNIST image, I recommend checking the invert image check box. If you want to see the amplified beam seclect "backpropagate output image". This is equivalent to bringing the amplified image bearing beam to an image plane.
+2) Run the same in time dependent mode. Toggle the time behavior dropdown. Chenge the beam ratio to 6 to get a more pronounced amplification. This will take about 15 minutes. You do not need to run the "Load samples..." cell again. The parameters are automatically updated. You do need to run the subsequent cells.
+3) Amplify an image. Use the image on beam dropdown to select 'Beam 1'. Select one of the MNIST images, or an AF resolution target. If you choose an MNIST image, I recommend checking the invert image check box. If you want to see the amplified beam seclect "backpropagate output image". This is equivalent to bringing the amplified image bearing beam to an image plane.
 4) Time dependent image amplification. When amplifying a real image, the phases in the interference pattern change slowly in the transverse direction and the time integration will be stable with long time steps ($t_0$ / 12), but the pattern becomes more complex for a phase image and shorter conservative time steps must be generally used to obtain stability. 
-5) Model fanning. Set the gain to 10, beam ratio zero, noise type 'volume xy', check 'fanning study'. Without an image applied you should find that the fanning efficiency is about 33%. Set the far field coloer scale sliere to 0.25.  You can type directly into the numerical value box. You will see some minor dark ring artifacts. These are due to the large value of the longitidinal step size (20 $\mu m$ )
-![fan100](https://github.com/user-attachments/assets/7067fc7b-5841-42ed-9ab4-113a640259df)
+5) Model fanning. Set the gain to 10, beam ratio zero, noise type 'volume xy', check 'fanning study'. Without an image applied you should find that the fanning efficiency (ratio of power in fanning to input power) is about 33%.  You will see some minor dark ring artifacts. These are due to the large value of the longitidinal step size (20 $\mu m$). The white circle with radius one is the boundary for the maximum direction cosine in the xy plane.
+
+![fanning_ss](https://github.com/user-attachments/assets/4fe34f04-ca20-47ca-b51a-e16d6f3f634f)
+
+
 
 6) Repeat the fanning modeling but with beam 1 waist 200 $\mu m$. You will see that the fanning is stronger than with the 100 $\mu m$ waist beam, and artifacts are beginning to creep in. The plot of the transverse grating shows that the fields have begun to wrap around and the far field image shows the characteristic fine dark artifact rings and the more diffuse rings at higher transverse wavenumbers.  These diffuse rings steal light from the true fanning and cause its intensity to be underestimated. The sharp diagonal features are due to wraparoud in the y direction. Note also that the fanning is truncated in the y direction.
-![fan200](https://github.com/user-attachments/assets/2048ad71-421c-4f19-a4f7-403409c6e554)
+
+![fanning_ss_200um](https://github.com/user-attachments/assets/d4600cd1-1f53-4907-999c-e9f302c7a40e)
+
 
 
 By increasing the number of y samples , ysamp from 512 to 4096 we can lessen the wraparound artifacts in the y direction. This increases the computation time to 63 seconds
 
-![image](https://github.com/user-attachments/assets/9e7cf421-2238-4a54-bd5f-02f3b7630168)
+![fanning_ss_200um_4096x4096](https://github.com/user-attachments/assets/a13a1225-8563-4d9a-8f7c-fecb8f0a4469)
+
 
 Now it is just the z step related artifacts that remain. These can be decreased by reducing the longitudinal step size from 20 $\mu m$ to 5 $\mu m$ at
-the cost of increasing the computation time to 270 seconds
+the cost of increasing the computation time to 270 seconds.The fanning efficiency is now 85%
 
-![image](https://github.com/user-attachments/assets/e10ed2ae-80ee-48c0-8baf-e71cd3a94e50)
+![fanning_ss_200um_4096x4096_dz_5](https://github.com/user-attachments/assets/98fe24c4-b0aa-40bb-807b-71612ba3c35c)
+
 
 **Explanation of parameters**
 
