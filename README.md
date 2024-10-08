@@ -51,25 +51,22 @@ Some examples to try initially:
 4) Time dependent image amplification. When amplifying a real image, the phases in the interference pattern change slowly in the transverse direction and the time integration will be stable with long time steps ($t_0$ / 12), but the pattern becomes more complex for a phase image and shorter conservative time steps must be generally used to obtain stability. 
 5) Model fanning. Set the gain to 10, beam ratio zero, noise type 'volume xy', check 'fanning study'. Without an image applied you should find that the fanning efficiency (ratio of power in fanning to input power) is about 33%.  You will see some minor dark ring artifacts. These are due to the large value of the longitidinal step size (20 $\mu m$). The white circle with radius one is the boundary for the maximum direction cosine in the xy plane.
 
-
-![fanning_ss](https://github.com/user-attachments/assets/94574ed8-5a88-4b34-946c-110bc82a7770)
-
-
+![fanning_ss](https://github.com/user-attachments/assets/2c0949ad-5d47-41f2-8b9d-92dad17fdb6c)
 
 6) Repeat the fanning modeling but with beam 1 waist 200 $\mu m$. You will see that the fanning is stronger than with the 100 $\mu m$ waist beam, and artifacts are beginning to creep in. The plot of the transverse grating shows that the fields have begun to wrap around and the far field image shows the characteristic fine dark artifact rings and the more diffuse rings at higher transverse wavenumbers.  These diffuse rings steal light from the true fanning and cause its intensity to be underestimated. The sharp diagonal features are due to wraparoud in the y direction. Note also that the fanning is truncated in the y direction.
 
-![fanning_ss_200um](https://github.com/user-attachments/assets/a139b968-d1e0-40da-bf8e-ae66542f9d5b)
-
+![fanning_ss_200um](https://github.com/user-attachments/assets/e36fdbc5-314b-4988-918d-05e50028afdc)
 
 
 By increasing the number of y samples , ysamp from 512 to 4096 we can lessen the wraparound artifacts in the y direction. This increases the computation time to 63 seconds
 
-![fanning_ss_200um_4096x4096](https://github.com/user-attachments/assets/e3c9191e-496e-43e7-ae6c-dfd265193a42)
+![fanning_ss_200um_4096x4096](https://github.com/user-attachments/assets/97a624bf-857e-4e78-b240-e8bfa2b35288)
+
 
 Now it is just the z step related artifacts that remain. These can be decreased by reducing the longitudinal step size from 20 $\mu m$ to 5 $\mu m$ at
 the cost of increasing the computation time to 270 seconds.The fanning efficiency is now 81%
 
-![fanning_ss_200um_4096x4096_dz_5](https://github.com/user-attachments/assets/2f9818ff-2c8c-4d10-aba7-aaa6f01cbdfb)
+![fanning_ss_200um_4096x4096_dz_5](https://github.com/user-attachments/assets/57218740-1ec7-45bd-bce6-0c7e9e59bc12)
 
 **Explanation of parameters**
 
