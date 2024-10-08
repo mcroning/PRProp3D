@@ -10,7 +10,17 @@ The defaults are two beam coupling of 100 $\mu m$ diameter beams with input angl
 
 Open on COLAB at the following link:
 (https://colab.research.google.com/github/mcroning/PRProp3D/blob/main/PRcoupler.ipynb)
-Instructions for use:
+
+**Dependencies**
+
+numpy, 
+cupy, 
+cupyx, 
+scipy, 
+matplotlib, 
+PIL, ipywidgets, json, pathlib, tqdm, Ipython
+
+**Instructions for use:**
 
 **First Run**
 
