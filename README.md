@@ -20,47 +20,46 @@ For the first run answer n to the prompt for loading existing parameters. The de
 
 Run the initialization cell, then the calculation loop. On a COLAB T4 GPU, the first run will take about 10 seconds.
 
-Run the postprocessing and display cell. This will show the input and output beams. The color scale can be interactively controlled by the sliders. Also provided is a cross section of the input and output beams. Their vertical scales can be controlled by sliders. Next the far field is displayed in terms of direction cosines. These can be interpreted as the sine of the propagation angle divided by the wavelength in the medium that the beam is traveling in ($\lambda/n$ where _n_ is the refractive index). The white circle with radius one is the boundary for the maximum direction cosine in the xy plane.
+Run the postprocessing and display cell. This will show the input and output beams. The color scale can be interactively controlled by the sliders. In each case, the sum of the peak intensities of the input gaussian beams is normalized to unity. Also provided is a cross section of the input and output beams. Their vertical scales can be controlled by sliders. Next the far field is displayed in terms of direction cosines. These can be interpreted as $sin(\theta)\lambda/n$ where $\theta$ is the propagation angle, $\lambda$ is the opticalwavelength and $n$ is the refractive index of the medium in which the beam is traveling. The white circle arcs with radius of curvature one are the boundaries for the maximum direction cosine in the xy plane.
 Finally for this first run you will see xz cross sections of the beam intensity and protorefractive grating field. Their color scales can also be adjusted with sliders. The next two cells are for generating movies of time dependent results and saving image and movie output as well as a json file of the parameters that were used.
 
 **Subsequent Runs**
-In the same session you can rerun the program with different parameters by updating the entries in the widgets. You do need to run the "Initialize parameters" cell each time you change parameters because the variables need to be explicitly updated. Subsequent runs of this cell are faster.
+In the same session you can rerun the program with different parameters by updating the entries in the widgets. You do need to run the "Initialize parameters" cell each time you change parameters because the variables need to be explicitly updated. Subsequent runs of this initialization cell are faster.
 
 **Time Dependent Model Runs**
 By setting the time behavior dropdown to "Time Dependent" you can make temporal calculations of two beam coupling.
 After running the postprocessing and display cell and using the sliders to adjust the output levels, run the Generate movies cell. Depending on the complexity of the fields, the time integration may become unstable.  If this happens the calculation cell will be aborted snd a notice given at the output of the cell. The output up to the failure can still be viewed and saved. In high resolution cases involving long runs it is recommended to separate movie generation from the beam propagation by using the program versions PRcoupler_large_videos.ipynb in a GPU COLAB instance then video_writer.ipynb which can be run separately in a CPU COLAB instance. This is because COLAB will sometimes disconnect if it senses that the GPU is not being used for part of the program.
 
 **Saving Data** 
-If you have checked the save data checkbox you will be prompted to allow access to your Google Drive. Running the save data cell will save a json file of the dictionary containing the parameters you used, formatted so it can be viewed by humans as a text file. Some output images will also be saved. These results are placed in a Google Drive folder whose name is specified in the Google Drive folder text box. 
-In subsequent runs if you answer yes to the offer to load an existing parameter file, you will be asked to authorize Google Drive access. It is easest to use the file menu on the left side of the notebook to open the folder with your data and right click on the json or npz file then copy the path to the text box which will pop up. Data were saved in compressed npz files in earlier versions, but now the dictionary is saved as a readable json.
+If you have checked the save data checkbox you may be prompted to allow access to your Google Drive. Running the save data cell will save a json file of the dictionary containing the parameters you used, formatted so it can be viewed by humans as a text file. Some output images will also be saved. These results are placed in a Google Drive folder whose name is specified in the Google Drive folder text box. 
+In subsequent runs if you answer yes to the offer to load an existing parameter file, you may be asked to authorize Google Drive access. It is easest to use the file menu on the left side of the notebook to open the folder with your data and right click on the json or npz file then copy the path to the text box which will pop up. Data were saved in compressed npz files in earlier versions, but now the dictionary is saved as a readable json.
 
 Some examples to try initially:
-1) Run with default parameters.  Theis will show steady state two beam coupling of two 100 $\mu m$ waist beams with $\gamma \ell$ =-3. On a T4 this takes about 7 seconds
-2) Run the same in time dependent mode. Toggle the time behavior dropdown. Chenge the beam ratio to 6 to get a more pronounced amplification. This will take about 15 minutes. You do not need to run the "Load samples..." cell again. The parameters are automatically updated. You do need to run the subsequent cells.
-3) Amplify an image. Use the image on beam dropdown to select 'Beam 1'. Select one of the MNIST images, or an AF resolution target. If you choose an MNIST image, I recommend checking the invert image check box. If you want to see the amplified beam seclect "backpropagate output image". This is equivalent to bringing the amplified image bearing beam to an image plane.
+1) Run with default parameters.  Theis will show steady state two beam coupling of two 100 $\mu m$ waist beams with $\gamma \ell$ =-3. On a T4 this takes about 7 seconds. Input gain (coupling constant) and caculated gain are immediately reported below the calculation cell.  The calculated gain is from the standard two beam coupling formula: half the logarithm of the ratio of the output to input beam ratios.
+2) Run the same in time dependent mode. Toggle the time behavior dropdown. Chenge the beam ratio to 6 to get a more pronounced amplification. This will take about 15 minutes for 120 time steps. You do not need to run the "Load samples..." cell again. The parameters are automatically updated. You do need to run the subsequent cells. The postprocessing and display cell will give the same outputs as in the static case, plus a graph of the output power of the amplified bema (Beam 1) vs time normalized to the characteristic photorefractive time constant.  The title of the graph includes the input coupling constant, and the coupling constant and time constant from a fit to a simple exponential growth to steady state model. Run the "Generate movies.." cell to make animations of the xz beam cross section and the output image.
+3) Amplify an image. Use the image on beam dropdown to select 'Beam 1'. Select one of the MNIST images, or an AF resolution target. If you choose an MNIST image, I recommend checking the time dependence ofinvert image check box. If you want to see the amplified beam seclect "backpropagate output image". This is equivalent to bringing the amplified image bearing beam to an image plane.
 4) Time dependent image amplification. When amplifying a real image, the phases in the interference pattern change slowly in the transverse direction and the time integration will be stable with long time steps ($t_0$ / 12), but the pattern becomes more complex for a phase image and shorter conservative time steps must be generally used to obtain stability. 
 5) Model fanning. Set the gain to 10, beam ratio zero, noise type 'volume xy', check 'fanning study'. Without an image applied you should find that the fanning efficiency (ratio of power in fanning to input power) is about 33%.  You will see some minor dark ring artifacts. These are due to the large value of the longitidinal step size (20 $\mu m$). The white circle with radius one is the boundary for the maximum direction cosine in the xy plane.
 
-![fanning_ss](https://github.com/user-attachments/assets/4fe34f04-ca20-47ca-b51a-e16d6f3f634f)
+
+![fanning_ss](https://github.com/user-attachments/assets/94574ed8-5a88-4b34-946c-110bc82a7770)
 
 
 
 6) Repeat the fanning modeling but with beam 1 waist 200 $\mu m$. You will see that the fanning is stronger than with the 100 $\mu m$ waist beam, and artifacts are beginning to creep in. The plot of the transverse grating shows that the fields have begun to wrap around and the far field image shows the characteristic fine dark artifact rings and the more diffuse rings at higher transverse wavenumbers.  These diffuse rings steal light from the true fanning and cause its intensity to be underestimated. The sharp diagonal features are due to wraparoud in the y direction. Note also that the fanning is truncated in the y direction.
 
-![fanning_ss_200um](https://github.com/user-attachments/assets/d4600cd1-1f53-4907-999c-e9f302c7a40e)
+![fanning_ss_200um](https://github.com/user-attachments/assets/a139b968-d1e0-40da-bf8e-ae66542f9d5b)
 
 
 
 By increasing the number of y samples , ysamp from 512 to 4096 we can lessen the wraparound artifacts in the y direction. This increases the computation time to 63 seconds
 
-![fanning_ss_200um_4096x4096](https://github.com/user-attachments/assets/a13a1225-8563-4d9a-8f7c-fecb8f0a4469)
-
+![fanning_ss_200um_4096x4096](https://github.com/user-attachments/assets/e3c9191e-496e-43e7-ae6c-dfd265193a42)
 
 Now it is just the z step related artifacts that remain. These can be decreased by reducing the longitudinal step size from 20 $\mu m$ to 5 $\mu m$ at
-the cost of increasing the computation time to 270 seconds.The fanning efficiency is now 85%
+the cost of increasing the computation time to 270 seconds.The fanning efficiency is now 81%
 
-![fanning_ss_200um_4096x4096_dz_5](https://github.com/user-attachments/assets/98fe24c4-b0aa-40bb-807b-71612ba3c35c)
-
+![fanning_ss_200um_4096x4096_dz_5](https://github.com/user-attachments/assets/2f9818ff-2c8c-4d10-aba7-aaa6f01cbdfb)
 
 **Explanation of parameters**
 
