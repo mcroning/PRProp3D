@@ -1,5 +1,5 @@
 # PRProp3D
-The software presented here is a three dimensional photorefractive beam propagation code. It is capable of modelling both static and dynamic interactions.
+The software presented here is a three dimensional photorefractive beam propagation code. It is capable of modelling both static and dynamic interactions. It is inspired by results from the early 1990's in which beam propagation methods were used to analyze several types of photorefractive phenomena in two dimensions: one transverse and one longitudinal.  Wuth the advent of GPUs 3D time dependent calculations have become possible.
 The menu items are shown below.
 
 ![image](https://github.com/user-attachments/assets/bb0ca750-cbe9-40f5-b944-09c42b79222e)
@@ -89,8 +89,7 @@ _standard image_: This dropdown is used to specify which of eleven standard supp
 
 _invert image_: A toggle to provide the option to invert the input image.  This is sometimes useful for avoiding sharp edges at the image boundary.
 
-_noise type_: 
-
+_noise type_:
 - _none_: No noise
 - _volume xy_: Scattering screens are placed at the end of each propagation step with the nonlinear phase transparency. The correlation length of these screens is given by sigma (see parameter sigma below). They are uncorrelated in the z direction.
 
