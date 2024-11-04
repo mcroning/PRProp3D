@@ -2,7 +2,7 @@
 The software presented here is a three dimensional photorefractive beam propagation code. It is capable of modelling both static and dynamic interactions. It is inspired by results from the early 1990's in which beam propagation methods were used by several researchers including Alex Zozulya, Mordechai Segev and others. These were used to analyze several types of photorefractive phenomena in two dimensions: one transverse and one longitudinal.  With the advent of GPUs 3D time dependent calculations have become possible. The main program is PRcoupler.ipynb.  The files with 'video' in the name are for time dependent cases that require large amounts of storage.
 The menu items are shown below.
 
-![image](https://github.com/user-attachments/assets/bb0ca750-cbe9-40f5-b944-09c42b79222e)
+<img width="560" alt="PRRrop3D GUI" src="https://github.com/user-attachments/assets/8ba39b23-a1e7-4996-be78-fa55596eb51b">
 
 The program calculates unidirectional nonlinear optical beam propagation in three dimensions using photorefractive optical nonlinearities. It is based on the well-known split step beam propagation method which divides the process into a series of alternating steps along the longitudinal z direction. Diffractive propagation steps are handled using the angular spectrum of plane waves method[1] in which the angular spectrum of the optical field is calculated using the Fast Fourier Transform (FFT). The field is propagated as a set of individual plane waves for a short distance dz and the inverse Fourier transform is taken. The accumulated nonlinearity is then calculated from the intensity and applied as a spatially varying transparency. The process is repeated until the end of the interaction region is reached. The parameters used in the code are shown below, listed in the order that they appear in the input form.
 The program with its default parameters will work on Google COLAB’s free accounts using its T4 GPU.  
@@ -152,7 +152,11 @@ _mobile charge density_: This is the density of empty sites in the crystal when 
 
 _temperature K_: Temperature in Kelvin.
 
-_refractive index_: Crystal refractive index. For BaTiO<sub>3</sub>, 2.4 (data available from various sources, with slight differences between ordinary and extraordinary indices).
+_ordinary refractive index_: Typical ordinary refractive index for BaTiO<sub>3</sub> (data available from various sources)
+
+_extraordinary refractive index_: Typical extraordinary refractive index for BaTiO<sub>3</sub> (data available from various sources)
+
+_crystal axis angle wrt z_: Crystal axis angle with respect to longitudinal z.
 
 _dark intensity_: Equivalent optical intensity accounting for thermally ionized carriers. This intensity accounts for dark decay of the gratings. Normalized to the sum of the average peak intensity I<sub>0</sub> of the beams. (See appendix A)
 
