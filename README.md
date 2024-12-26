@@ -10,7 +10,8 @@ The program with its default parameters will work on Google COLAB’s free accou
 The defaults are two beam coupling of 100 $\mu m$ diameter beams with input angles of $\theta$ = 0.1 radians and $\gamma \ell$ =-3. This results in the amplifaction of the beam labelled "Beam 1" by a factor of about 1.5. The longitudinal step size is 20 $\mu m$ and the crystal aperture is 1mm x 1mm. The interaction length is 4mm. A steady state calculation takes about 8 seconds. Time dependent beam coupling over 120 time steps to an end time of ten time units takes about 15 minutes. The program has also been tested with plane wave coupling with $\gamma \ell$ =-3, beam ratio 1 and fanning with $\gamma \ell$ = 10 and beam ratio zero.
 
 Open on COLAB at the following link:
-(https://colab.research.google.com/github/mcroning/PRProp3D/blob/main/PRcoupler.ipynb)
+https://github.com/mcroning/PRProp3D/blob/main/PRprop3D.ipynb
+
 
 **Dependencies**
 
@@ -22,10 +23,11 @@ matplotlib,
 PIL, ipywidgets, json, pathlib, tqdm, Ipython
 
 **Instructions for use:**
+The program PRPropo3D.ipynb is best run in Google COLAB. Many examples can be run using the basic T4 GPU.
 
 **First Run**
 
-In the notebook run the first three cells 1) to load modules and 2) load functions and 3) load sample images and set functions. 
+In the notebook PRProp3D.ipynb run the first three cells 1) to load modules and 2) load functions and 3) load sample images and set functions. 
 
 For the first run answer n to the prompt for loading existing parameters. The default parameters are automatically loaded.
 
