@@ -1,5 +1,8 @@
 # PRProp3D
 The software presented here is a three dimensional photorefractive beam propagation code. It is capable of modelling both static and dynamic interactions. It is inspired by results from the early 1990's in which beam propagation methods were used by several researchers including Alex Zozulya, Mordechai Segev and others. These were used to analyze several types of photorefractive phenomena in two dimensions: one transverse and one longitudinal.  With the advent of GPUs 3D time dependent calculations have become possible. The main program is PRcoupler.ipynb.  The files with 'video' in the name are for time dependent cases that require large amounts of storage.
+
+Details on the development and behavior of the code are in the paper "Three-Dimensional Scalar Time-Dependent Photorefractive Beam Propagation Model" https://www.mdpi.com/2304-6732/12/2/113
+
 The menu items are shown below.
 
 ![PRcoupler_input](https://github.com/user-attachments/assets/fd92a814-1a42-400e-bd47-7099249b9d14)
