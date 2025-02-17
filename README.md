@@ -174,3 +174,6 @@ _Tukey window edge_: The edge parameter for the Tukey (cosine taper) window[5] u
 
 [5] F. J. Harris, Proceedings of the IEEE **66**, 51 (1978).
 
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
