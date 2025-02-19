@@ -8,8 +8,8 @@ import subprocess
 from scipy.ndimage import zoom, gaussian_filter
 import torch
 
-#if not Path("/sample_images").exists():
-#  process = subprocess.run(['git clone https://github.com/mcroning/sample_images'],shell=True)
+if not Path("./sample_images").exists():
+  process = subprocess.run(['git clone https://github.com/mcroning/sample_images'],shell=True)
 
 #image on beam options options=['No Image','Beam 1','Beam 2','Beams 1 & 2']\
 #time_behavior options=["Static", "Time Dependent"]
